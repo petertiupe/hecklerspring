@@ -14,6 +14,8 @@ import javax.persistence.Id
 *
 * Ich habe überlegt, eine Wrapper - Klasse zu nutzen, das muss aber wohl getestet sein.
 * */
+
+// Die Variablen werden derzeit nirgends einzeln abgefragt
 @Suppress("unused")
 @Entity
 class Article(
