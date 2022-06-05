@@ -5,3 +5,7 @@
 /gradlew.bat
 /build/
 /resources/
+/resources/data/
+/resources/data/demo.mv.db
+/resources/data/demo.trace.db
+
