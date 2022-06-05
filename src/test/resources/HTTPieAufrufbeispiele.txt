@@ -1,0 +1,19 @@
+################################################
+Ohne Hostangabe liest HTTPie immer vom localhost
+################################################
+
+# Get (alle Einträge)
+http :8080/articles
+
+# Get (einen Eintrag (hier mit der id 1))
+ http :8080/articles/1
+
+# Post (das neue Objekt wird aus der Datei newArticle.json gelesen)
+http :8080/articles < newArticle.json
+
+
+# Put (das neue Objekt wird aus der Datei newArticle.json gelesen (hier der Artikel mit der id 3))
+http PUT :8080/articles/3 < newArticle.json
+
+# Delete
+http DELETE :8080/articles/3
