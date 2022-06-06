@@ -6,3 +6,8 @@ gruss:
     a-morgens: ${gruss.morgens}, es gibt Frühstück
     a-mittags: ${gruss.mittags}, es gibt Mittagessen
     a-abends: ${gruss.abends}, es gibt Abendessen
+
+confprops:
+  greetingMorgen: guten Morgen aus den Configproperties
+  greetingMittag: guten Tag aus den Configproperties
+  greetingAbend: guten Abend aus den Configproperties

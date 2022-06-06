@@ -38,6 +38,10 @@ dependencies {
     // Spring-Dev-Tools
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
+    // Unterstützung bei der Eingabe von Config-Properties
+    // Wenn man die Klasse installiert hat, kann die IDE die Properties vorschlagen
+    developmentOnly("org.springframework.boot:spring-boot-configuration-processor")
+
     // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

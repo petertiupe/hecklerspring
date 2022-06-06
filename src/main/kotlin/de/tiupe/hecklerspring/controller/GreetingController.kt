@@ -1,11 +1,13 @@
 package de.tiupe.hecklerspring.controller
 
+import de.tiupe.hecklerspring.configuration.Greeting
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 
 
@@ -17,23 +19,26 @@ class GreetingController {
     // mit dem Doppelpunkt wird ein Default-Wert abgetrennt
 
     @Value("\${gruss.morgens: Hallo}")
-    lateinit var  morgengruss: String
+    private lateinit var  morgengruss: String
 
     @Value("\${gruss.morgens: Hallo}")
-    lateinit var  mittagsgruss: String
+    private lateinit var  mittagsgruss: String
 
     @Value("\${gruss.morgens: Hallo}")
-    lateinit var  abendgruss: String
+    private lateinit var  abendgruss: String
 
     @Value("\${gruss.abhaengigkeit.a-morgens}")
-    lateinit var fruehstueck: String
+    private lateinit var fruehstueck: String
 
     @Value("\${gruss.abhaengigkeit.a-mittags}")
-    lateinit var mittagessen: String
+    private lateinit var mittagessen: String
 
     @Value("\${gruss.abhaengigkeit.a-abends}")
-    lateinit var abendbrot: String
+    private lateinit var abendbrot: String
 
+    // Die Configuration ist keine Bean, daher sollte das auch so klappen.
+    @Autowired
+    private lateinit var greeting: Greeting
 
 
 
@@ -63,6 +68,18 @@ class GreetingController {
             }
         }
 
+    @GetMapping("/configgruss")
+    fun getConfigGruss(): String {
+        val now = Clock.System.now()
+        val hourOfDay: Int = now.toLocalDateTime(TimeZone.currentSystemDefault()).hour
+        if(hourOfDay < 12) {
+            return greeting.greetingMorgen
+        } else if (hourOfDay in 12..17) {
+            return greeting.greetingMittag
+        } else {
+            return greeting.greetingAbend
+        }
+    }
 
 
 }
