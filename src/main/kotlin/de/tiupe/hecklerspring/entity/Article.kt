@@ -1,5 +1,6 @@
 package de.tiupe.hecklerspring.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import javax.persistence.Entity
 import javax.persistence.Id
 
@@ -17,6 +18,7 @@ import javax.persistence.Id
 
 // Die Variablen werden derzeit nirgends einzeln abgefragt
 @Suppress("unused")
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 class Article(
     @Id val id: String,

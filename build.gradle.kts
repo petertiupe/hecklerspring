@@ -25,8 +25,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    // Spring-Web
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    // Spring-Webflux anstelle von starter-web, weil man dann den modernsten
+    // Web-Client zur Verfügung hat. WebClient ist sowohl für blockierende als auch
+    // für nicht blockierende WebClients nutzbar.
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
     // Spring-JPA
     // H2-Datenbank als User-DB
@@ -52,6 +57,9 @@ dependencies {
 
     // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // Reactor-Tests
+    testImplementation("io.projectreactor:reactor-test")
+
 }
 noArg {
     annotation("com.my.Annotation")
