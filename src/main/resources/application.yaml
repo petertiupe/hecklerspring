@@ -1,3 +1,30 @@
+# Um an den Autoconfiguration-Report zu kommen, reicht es die Anwendung mit
+# einem debug-Flag zu starten
+
+# java -jar xxx.jar --debug // Anwendungsparameter
+
+# java -Ddebug=true -jar xxx.jar // JVM-Parameter
+
+# als Umgebungsvariable würde auch noch gehen
+# oder wie hier gewählt als Umgebungsparameter
+
+
+debug: true # default ist false
+
+# liefert dann:
+#    ============================
+#    CONDITIONS EVALUATION REPORT
+#    ============================
+#
+#
+#  Positive matches:
+#    -----------------
+#
+#  AopAutoConfiguration matched:
+#    - @ConditionalOnProperty (spring.aop.auto=true) matched (OnPropertyCondition)
+#
+#
+
 gruss:
   morgens: guten Morgen
   mittags: guten Tag
