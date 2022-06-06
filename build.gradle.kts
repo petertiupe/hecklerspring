@@ -32,7 +32,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("com.h2database:h2")
 
-    // H2
+    // Kotlinx-Date-Time
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
 
     // Spring-Dev-Tools
     developmentOnly("org.springframework.boot:spring-boot-devtools")

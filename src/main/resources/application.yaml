@@ -1,0 +1,8 @@
+gruss:
+  morgens: guten Morgen
+  mittags: guten Tag
+  abends: guten Abend
+  abhaengigkeit:
+    a-morgens: ${gruss.morgens}, es gibt Frühstück
+    a-mittags: ${gruss.mittags}, es gibt Mittagessen
+    a-abends: ${gruss.abends}, es gibt Abendessen
