@@ -47,6 +47,9 @@ dependencies {
     // 6.6.2022 aber noch nicht gelöst.)
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 
+    // stellt den Actuator und der URL /actuator zur Verfügung
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+
     // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

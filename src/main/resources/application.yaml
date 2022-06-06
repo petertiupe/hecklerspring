@@ -6,24 +6,25 @@
 # java -Ddebug=true -jar xxx.jar // JVM-Parameter
 
 # als Umgebungsvariable würde auch noch gehen
+# export DEBUG=true in einer Shell
+
 # oder wie hier gewählt als Umgebungsparameter
 
 
-debug: true # default ist false
+debug: false # default ist false
 
-# liefert dann:
-#    ============================
-#    CONDITIONS EVALUATION REPORT
-#    ============================
-#
-#
-#  Positive matches:
-#    -----------------
-#
-#  AopAutoConfiguration matched:
-#    - @ConditionalOnProperty (spring.aop.auto=true) matched (OnPropertyCondition)
-#
-#
+# Actuator: der Actuator ist "Secure by Default" Informationen, die nach
+# außen gegeben werden sollen, müssen speziell aktiviert werden:
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env, info, health, beans, conditions, configprops, heapdump, loggers, mappings, metrics, threaddump
+  endpoint:
+    health:
+      # alle Details werden vom Aktuator herausgegeben
+      show-details: always # daneben gibt es never und when_authorized
+
 
 gruss:
   morgens: guten Morgen
