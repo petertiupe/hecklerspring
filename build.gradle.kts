@@ -9,6 +9,7 @@ plugins {
 
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
+    kotlin("kapt") version "1.3.70"
 }
 
 group = "de.tiupe"
@@ -40,7 +41,11 @@ dependencies {
 
     // Unterstützung bei der Eingabe von Config-Properties
     // Wenn man die Klasse installiert hat, kann die IDE die Properties vorschlagen
-    developmentOnly("org.springframework.boot:spring-boot-configuration-processor")
+    //developmentOnly("org.springframework.boot:spring-boot-configuration-processor")
+    // nur mit dem Annotation-Processor bekommt man die Unterstützung in intellij
+    // Es gibt einen Pull-Request für den KSP (Kotlin-Symbol-Processor, der war am
+    // 6.6.2022 aber noch nicht gelöst.)
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")
