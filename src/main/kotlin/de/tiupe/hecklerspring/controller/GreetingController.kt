@@ -1,6 +1,8 @@
 package de.tiupe.hecklerspring.controller
 
 import de.tiupe.hecklerspring.configuration.Greeting
+import de.tiupe.hecklerspring.database.StudentRepository
+import de.tiupe.hecklerspring.entity.Student
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -8,7 +10,11 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.reactive.function.client.WebClient
+import reactor.core.publisher.Mono
+
 
 
 @RestController
@@ -39,6 +45,9 @@ class GreetingController {
     // Die Configuration ist keine Bean, daher sollte das auch so klappen.
     @Autowired
     private lateinit var greeting: Greeting
+
+    @Autowired
+    private lateinit var studentRepository: StudentRepository
 
 
 
@@ -80,6 +89,20 @@ class GreetingController {
             return greeting.greetingAbend
         }
     }
+    @GetMapping("/flux")
+    fun getTiupe(): Mono<String> {
+        val webClient: WebClient = WebClient.create("http://www.tiupe.de")
+        val result = webClient.get().retrieve()
+        val x: Mono<String> = result.bodyToMono(String::class.java)
+        return x
+    }
+
+    @GetMapping("/student/{id}")
+    fun getStudent(@PathVariable id: String): Student {
+        val student: Student = studentRepository.findById(id).get()
+        return student
+    }
+
 
 
 }

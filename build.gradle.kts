@@ -21,6 +21,13 @@ repositories {
 }
 
 dependencies {
+
+
+
+
+
+
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -29,7 +36,14 @@ dependencies {
     // Web-Client zur Verfügung hat. WebClient ist sowohl für blockierende als auch
     // für nicht blockierende WebClients nutzbar.
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
+
+    // implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
+    // implementation("redis.clients:jedis:3.6.0")
+    implementation("redis.clients:jedis:3.3.0")
+    implementation("org.springframework.data:spring-data-redis:2.3.3.RELEASE")
+
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 

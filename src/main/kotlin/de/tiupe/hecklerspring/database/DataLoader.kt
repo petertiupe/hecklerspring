@@ -6,7 +6,9 @@ import javax.annotation.PostConstruct
 
 
 @Component
-class DataLoader(val articleRepository: ArticleRepository) {
+@Suppress("unused")
+class DataLoader(val articleRepository: ArticleRepository,
+                 val studentRepository: StudentRepository) {
     @PostConstruct
     private fun loadData() {
         this.articleRepository.saveAll(
@@ -15,5 +17,12 @@ class DataLoader(val articleRepository: ArticleRepository) {
                 Article("2", "http://www.spiegel.de", "Spiegel", "Eines der wöchentlichen Nachrichtenmagazine in Deutschland")
             )
         )
+
+        /*this.studentRepository.saveAll(
+            listOf(
+                Student("1", "Peter", Student.Gender.MALE),
+                Student("2", "Tina", Student.Gender.FEMALE)
+            )
+        )*/
     }
 }
