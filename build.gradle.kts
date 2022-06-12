@@ -36,6 +36,9 @@ dependencies {
     // Kotlinx-Date-Time
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
 
+    // Spring-Security
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
     // Spring-Dev-Tools
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
@@ -53,7 +56,8 @@ dependencies {
     // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
-noArg {
+    // No Argument-Konstruktoren werden automatisch erzeugt.
+    noArg {
     annotation("com.my.Annotation")
 }
 

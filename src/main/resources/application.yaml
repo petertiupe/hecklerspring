@@ -39,3 +39,9 @@ confprops:
   greetingMorgen: guten Morgen aus den Configproperties
   greetingMittag: guten Tag aus den Configproperties
   greetingAbend: guten Abend aus den Configproperties
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+

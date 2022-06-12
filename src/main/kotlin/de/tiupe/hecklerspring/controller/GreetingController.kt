@@ -21,10 +21,10 @@ class GreetingController {
     @Value("\${gruss.morgens: Hallo}")
     private lateinit var  morgengruss: String
 
-    @Value("\${gruss.morgens: Hallo}")
+    @Value("\${gruss.mittags: Hallo}")
     private lateinit var  mittagsgruss: String
 
-    @Value("\${gruss.morgens: Hallo}")
+    @Value("\${gruss.abends: Hallo}")
     private lateinit var  abendgruss: String
 
     @Value("\${gruss.abhaengigkeit.a-morgens}")
